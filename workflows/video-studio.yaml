@@ -1,0 +1,105 @@
+name: video-studio
+version: 0.1.0
+description: AI media production pipeline — research a topic, define the video, produce script + assets, ship to platform, drive growth, capture metrics for next cycle.
+
+stages:
+  - id: research
+    description: |
+      Investigate the topic. Survey what's been said, what's missing, who the audience is, what hooks work in this niche.
+      Output is a research brief that feeds the next stage.
+    owner_agent: strategist
+    allowed_skills: [research-agg, content-engine, brand-voice]
+    blocked_skills: [frontend-design, deploy-playbook, postmortem]
+    blocked_tools: [Edit, Write]
+    artifact: 01-research.md
+    artifact_schema:
+      - Topic and angle
+      - Audience
+      - Competitive landscape
+      - Hook candidates
+      - Open questions for define
+    inject_lessons_from: research
+    next: [define]
+
+  - id: define
+    description: |
+      Turn the research brief into a concrete video spec: title, thumbnail concept, script outline, voiceover style, target length.
+      This is the PM stage — produce something a content team can execute against.
+    owner_agent: strategist
+    allowed_skills: [operationalize, brand-voice, content-engine]
+    blocked_skills: [frontend-design, deploy-playbook]
+    blocked_tools: [Edit, Write]
+    artifact: 02-define.md
+    artifact_schema:
+      - Final title
+      - Thumbnail concept
+      - Script outline
+      - Voiceover direction
+      - Target length and platform
+      - Success metrics
+    inject_lessons_from: define
+    next: [produce]
+
+  - id: produce
+    description: |
+      Generate the actual assets: full script, voiceover audio, b-roll/visual list, thumbnail asset.
+      No deploys yet. Output is a content-ready bundle stored in the cycle's assets/ directory.
+    owner_agent: knowledge-engineer
+    allowed_skills: [content-engine, brand-voice, frontend-design]
+    blocked_skills: [deploy-playbook, postmortem, research-agg]
+    artifact: 03-produce.md
+    artifact_schema:
+      - Asset inventory
+      - Script (final)
+      - Production notes
+      - Quality self-check
+    inject_lessons_from: produce
+    next: [ship]
+
+  - id: ship
+    description: |
+      Publish the video to the target platform(s). Schedule, set metadata, announce.
+      Capture the published URL and timestamps in the artifact.
+    owner_agent: devops
+    allowed_skills: [deploy-playbook, n8n-templates]
+    blocked_skills: [research-agg, content-engine, frontend-design]
+    artifact: 04-ship.md
+    artifact_schema:
+      - Platform and URL
+      - Publish timestamp
+      - Distribution checklist
+      - Smoke-test results
+    inject_lessons_from: ship
+    next: [grow]
+
+  - id: grow
+    description: |
+      Drive traffic. Cross-post, run paid promotion if budget allows, engage early viewers, syndicate to email and social.
+      Track which channels actually moved the needle.
+    owner_agent: strategist
+    allowed_skills: [content-engine, brand-voice, case-study, n8n-templates]
+    blocked_skills: [deploy-playbook, frontend-design]
+    artifact: 05-grow.md
+    artifact_schema:
+      - Distribution actions taken
+      - Early engagement signal
+      - Channel-by-channel attribution
+      - Open follow-ups
+    inject_lessons_from: grow
+    next: [measure]
+
+  - id: measure
+    description: |
+      Capture the post-publish performance numbers and feed them back into the next cycle.
+      This is what turns the workflow into a learning system.
+    owner_agent: knowledge-engineer
+    allowed_skills: [eval-report, case-study, operationalize]
+    blocked_skills: [deploy-playbook, frontend-design]
+    artifact: 06-measure.md
+    artifact_schema:
+      - Final metrics (views, retention, CTR)
+      - What worked
+      - What did not work
+      - Lessons for future cycles
+    inject_lessons_from: measure
+    next: [~]
