@@ -23,8 +23,10 @@ stages:
 
   - id: define
     description: |
-      Turn the research brief into a concrete video spec: title, thumbnail concept, script outline, voiceover style, target length.
-      This is the PM stage — produce something a content team can execute against.
+      Turn the research brief into a concrete video spec AND lock down the venture-level decisions
+      research surfaced. PM stage — produce something a content team can execute against AND lock
+      the load-bearing decisions (originality signal, channel brand, cadence ramp) so the production
+      pipeline does not drift back into the policy-risk pattern research flagged.
     owner_agent: strategist
     allowed_skills: [operationalize, brand-voice, content-engine]
     blocked_skills: [frontend-design, deploy-playbook]
@@ -37,6 +39,9 @@ stages:
       - Voiceover direction
       - Target length and platform
       - Success metrics
+      - Originality signal mechanism
+      - Channel brand decision
+      - Cadence ramp
     inject_lessons_from: define
     next: [produce]
 
