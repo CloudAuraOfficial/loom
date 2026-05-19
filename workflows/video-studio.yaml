@@ -10,7 +10,7 @@ stages:
     owner_agent: strategist
     allowed_skills: [research-agg, content-engine, brand-voice]
     blocked_skills: [frontend-design, deploy-playbook, postmortem]
-    blocked_tools: [Edit, Write]
+    blocked_tools: [Edit]   # Write allowed — the agent needs it to produce the artifact
     artifact: 01-research.md
     artifact_schema:
       - Topic and angle
@@ -28,7 +28,7 @@ stages:
     owner_agent: strategist
     allowed_skills: [operationalize, brand-voice, content-engine]
     blocked_skills: [frontend-design, deploy-playbook]
-    blocked_tools: [Edit, Write]
+    blocked_tools: [Edit]   # Write allowed — the agent needs it to produce the artifact
     artifact: 02-define.md
     artifact_schema:
       - Final title
