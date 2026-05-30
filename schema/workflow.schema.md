@@ -18,7 +18,7 @@ A workflow is declared in a single YAML file in `workflows/<name>.yaml`. Project
 |---|---|---|---|
 | `id` | yes | string | Kebab-case stage identifier. Unique within a workflow. |
 | `description` | yes | string | What this stage produces. Shown in `/loom-status` and injected into the owner agent's prompt. |
-| `owner_agent` | yes | string | Agent name (matches a file in `~/rogerclaude/agents/<name>.md`). The agent invoked by `/loom-advance`. |
+| `owner_agent` | yes | string | Agent name (matches a file in `~/rogerclaude/agents/<name>.md`). The agent invoked by `/loom-advance`. For planning/delivery gates, prefer a PM **decision lens**: `product-owner` (Value — what to build), `scrum-master` (Flow — how work moves), `program-manager` (Coordination — across initiatives). |
 | `allowed_skills` | no | list[string] | Skills explicitly enabled for this stage. Other skills are still callable unless `blocked_skills` lists them. |
 | `blocked_skills` | no | list[string] | Skills the Context Router blocks during this stage. |
 | `allowed_tools` | no | list[string] | Whitelist for built-in tools (Edit, Write, Bash, etc.). If present, only listed tools are allowed. |
