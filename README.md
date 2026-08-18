@@ -42,9 +42,9 @@ loom/
 ├── schema/                  # workflow.yaml + artifact format specs
 ├── workflows/               # workflow library (one .yaml per workflow type)
 ├── hooks/                   # the 3 Claude Code hook scripts
-├── scripts/                 # loom-init, loom-advance, loom-status, loom-back, loom_lib.py
-├── examples/                # reference .loom/ directories
-└── docs/                    # CONCEPTS.md, USAGE.md, design notes
+├── scripts/                 # loom_lib.py — subcommands: init · status · validate · advance · router · find-root
+├── examples/                # (placeholder — reference .loom/ directories to come)
+└── docs/                    # USAGE.md (CONCEPTS.md planned)
 ```
 
 ## Status
